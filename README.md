@@ -1,4 +1,4 @@
-# UVM_Tutorials
+# Simple ALU
 
 This is UVM tutoria for verifying very simple ALU design. 
 1. Directories:
