@@ -1,21 +1,21 @@
-alu_test
-alu_add_test
-alu_sub_test
-alu_and_test
-alu_or_test
-alu_xor_test
-alu_not_test
-alu_sll_test
-alu_srl_test
-alu_rll_test
-alu_rrl_test
-alu_bez_test
-alu_bnz_test
-alu_slt_test
-alu_cpseq_test
-alu_cpslt_test
-alu_cpsgt_test
-alu_reg_reset_test
-alu_reg_bitbash_test
-alu_nodelay_test
-alu_longdelay_test
+alu_test 5
+alu_add_test 5
+alu_sub_test 5
+alu_and_test 5
+alu_or_test 5
+alu_xor_test 5
+alu_not_test 5
+alu_sll_test 5
+alu_srl_test 5
+alu_rll_test 5
+alu_rrl_test 5
+alu_bez_test 5
+alu_bnz_test 5
+alu_slt_test 5
+alu_cpseq_test 5
+alu_cpslt_test 5
+alu_cpsgt_test 5
+alu_reg_reset_test 5
+alu_reg_bitbash_test 5
+alu_nodelay_test 5
+alu_longdelay_test 5
