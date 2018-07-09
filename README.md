@@ -54,11 +54,7 @@ Note:
 - Go to: cd dv/sim
 - Execute: perl regression.pl [-options] regression.f
 
-4.1. Input regresion.f format:
-| test name | spaces | number of loops
-| alu_test  |        | 5
-
-It means alu_test will be executed 5 times
+4.1. Input format: |test-name|spaces|number-of-loops|
 
 4.2. Script regresion.pl options:
 - coverage : Generate coverage report
