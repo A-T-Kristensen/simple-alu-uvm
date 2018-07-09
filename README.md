@@ -1,4 +1,4 @@
-# UVM_Tutorials
+# Simple ALU
 
 This is UVM tutoria for verifying very simple ALU design. 
 1. Directories:
@@ -39,8 +39,9 @@ This is UVM tutoria for verifying very simple ALU design.
 -----------------------------------------------------
 
 3. How to run: 
+- cd dv/sim directory where Makefile located
 - Compile: make compile
-- Simulate: make simulation TEST=test_to_run
+- Simulate: make simulation TEST=test_to_run SEED=optional
 - Open waveform: make waveform
 - Generate coverage report: make coverage
 
