@@ -17,12 +17,9 @@ typedef enum bit[4:0] {
   SRL   = 5'b01000,
   RLL   = 5'b01001,
   RRL   = 5'b01010,
-  BEZ   = 5'b01011,
-  BNZ   = 5'b01100,
-  SLT   = 5'b01101,
-  CPSEQ = 5'b01110,
-  CPSLT = 5'b01111,
-  CPSGT = 5'b10000
+  CMPEQ = 5'b01011,
+  CMPLT = 5'b01100,
+  CMPGT = 5'b01101
 } opcode_e;
 
 class alu_trans extends uvm_sequence_item;

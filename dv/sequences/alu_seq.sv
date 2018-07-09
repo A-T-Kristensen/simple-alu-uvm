@@ -16,7 +16,7 @@ class alu_seq extends uvm_sequence;
 
   virtual function bit get_trans(alu_trans trans);
     return (trans.randomize() with {
-      opcode_m inside {ADD, SUB, AND, OR, XOR, NOT, SLL, SRL, RLL, RRL, BEZ, BNZ, SLT, CPSEQ, CPSLT, CPSGT};
+      opcode_m inside {ADD, SUB, AND, OR, XOR, NOT, SLL, SRL, RLL, RRL, CMPEQ, CMPLT, CMPGT};
     });
   endfunction : get_trans
 

@@ -15,7 +15,7 @@ class alu_error_seq extends alu_seq;
 
   virtual function bit get_trans(alu_trans trans);
     return (trans.randomize() with {
-      opcode_m inside {5'b00000, [5'b10001:5'b11111]};
+      opcode_m inside {5'b00000, [5'b01110:5'b11111]};
     });
   endfunction : get_trans
 

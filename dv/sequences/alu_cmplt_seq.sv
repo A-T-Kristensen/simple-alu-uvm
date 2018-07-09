@@ -4,29 +4,23 @@
 // Date   : July 08, 2018
 //==================================================
  
-`ifndef _ALU_CPSEQ_SEQ_
-`define _ALU_CPSEQ_SEQ_
-class alu_cpseq_seq extends alu_seq;
-  `uvm_object_utils(alu_cpseq_seq)
+`ifndef _ALU_CMPLT_SEQ_
+`define _ALU_CMPLT_SEQ_
+class alu_cmplt_seq extends alu_seq;
+  `uvm_object_utils(alu_cmplt_seq)
 
-  function new(string name="alu_cpseq_seq");
+  function new(string name="alu_cmplt_seq");
     super.new(name);
   endfunction : new
 
   virtual function bit get_trans(alu_trans trans);
-    bit hit;
-    if(!std::randomize(hit)) begin
-      `uvm_fatal("ALU_CPSEQ_SEQ", "Randomized failed")
-    end
     return (trans.randomize() with {
-      opcode_m == CPSEQ;
-      hit == 1 -> (operand1_m == operand2_m);
-      hit == 0 -> (operand1_m != operand2_m);
+      opcode_m == CMPLT;
     });
   endfunction : get_trans
 
   virtual task body;
     super.body();
   endtask : body
-endclass : alu_cpseq_seq
+endclass : alu_cmplt_seq
 `endif

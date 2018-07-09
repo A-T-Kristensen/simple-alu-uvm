@@ -55,55 +55,61 @@ class alu_scoreboard extends uvm_scoreboard;
       SUB: begin
         bit[8:0] result = (trans.operand1_m - trans.operand2_m);
         trans.result_m = result[7:0];
-        trans.status_m = {result[8], 4'b0};
+        trans.status_m = {1'b0, result[8], 3'b0};
       end
       AND: begin
         trans.result_m = (trans.operand1_m & trans.operand2_m);
+        trans.status_m = 5'b0;
       end
       OR: begin
         trans.result_m = (trans.operand1_m | trans.operand2_m);
+        trans.status_m = 5'b0;
       end
       XOR: begin
         trans.result_m = (trans.operand1_m ^ trans.operand2_m);
+        trans.status_m = 5'b0;
       end
       NOT: begin
         trans.result_m = ~trans.operand1_m;
+        trans.status_m = 5'b0;
       end
       SLL: begin
         trans.result_m = trans.operand1_m << (trans.operand2_m % 8);
+        trans.status_m = 5'b0;
       end
       SRL: begin
         trans.result_m = trans.operand1_m >> (trans.operand2_m % 8);
+        trans.status_m = 5'b0;
       end
       RLL: begin
         trans.result_m = trans.operand1_m;
+        trans.status_m = 5'b0;
         repeat(trans.operand2_m % 8) begin
           trans.result_m = {trans.result_m[6:0], trans.result_m[7]};
         end
       end
       RRL: begin
         trans.result_m = trans.operand1_m;
+        trans.status_m = 5'b0;
         repeat(trans.operand2_m % 8) begin
           trans.result_m = {trans.result_m[0], trans.result_m[7:1]};
         end
       end
-      BEZ: begin
-        trans.status_m = {1'b0, (trans.operand1_m == 8'h0), 3'b0};
-      end
-      BNZ: begin
-        trans.status_m = {1'b0, (trans.operand1_m == 8'h0), 3'b0};
-      end
-      SLT: begin
-        trans.status_m = {3'b0, (trans.operand1_m < trans.operand2_m), 1'b0};
-      end
-      CPSEQ: begin
+      CMPEQ: begin
+        trans.result_m = 8'b0;
         trans.status_m = {2'b0, (trans.operand1_m == trans.operand2_m), 2'b0};
       end
-      CPSLT: begin
+      CMPLT: begin
+        trans.result_m = 8'b0;
         trans.status_m = {3'b0, (trans.operand1_m < trans.operand2_m), 1'b0};
       end
-      CPSGT: begin
+      CMPGT: begin
+        trans.result_m = 8'b0;
         trans.status_m = {4'b0, (trans.operand1_m > trans.operand2_m)};
+      end
+      default: begin
+        trans.result_m = 8'b0;
+        trans.status_m = 5'b0;
       end
     endcase
     exp_trans_q_m.push_back(trans);

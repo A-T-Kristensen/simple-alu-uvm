@@ -35,8 +35,9 @@ This is a full tutorial to verify simple ALU design using UVM (Univeral Verifica
 | alu_cmpgt_test        | Compare Greater Than operation test   |
 | alu_reg_reset_test    | Reset/Initial register value test     |
 | alu_reg_bitbash_test  | Bitbash register value test           |
-| alu_nodelay_test      | Back2back (no delay) trans test       |
-| alu_longdelay_test    | Backpressure (long delay) trans test  |
+| alu_test              | Full randomized test                  |
+| alu_nodelay_test      | No delay trans test                   |
+| alu_longdelay_test    | Long delay trans test                 |
 | alu_error_test        | Invalid operation test                |
 
 
@@ -60,7 +61,6 @@ Change *PLI_PATH* in Makefile depending on your environment
 ### 4.1. Input format:
 | Test                  | Number Loop |
 | --------------------- | :----------:|
-| alu_test              |       5     |
 | alu_add_test          |       5     |
 | alu_sub_test          |       5     |
 | alu_and_test          |       5     |
@@ -71,16 +71,15 @@ Change *PLI_PATH* in Makefile depending on your environment
 | alu_srl_test          |       5     |
 | alu_rll_test          |       5     |
 | alu_rrl_test          |       5     |
-| alu_bez_test          |       5     |
-| alu_bnz_test          |       5     |
-| alu_slt_test          |       5     |
-| alu_cpseq_test        |       5     |
-| alu_cpslt_test        |       5     |
-| alu_cpsgt_test        |       5     |
+| alu_cmpeq_test        |       5     |
+| alu_cmplt_test        |       5     |
+| alu_cmpgt_test        |       5     |
 | alu_reg_reset_test    |       5     |
 | alu_reg_bitbash_test  |       5     |
-| alu_nodelay_test      |       5     |
-| alu_longdelay_test    |       5     |
+| alu_test              |      10     |
+| alu_nodelay_test      |      10     |
+| alu_longdelay_test    |      10     |
+| alu_error_test        |       5     |
 
 It means every test will be executed 5 times
 
@@ -135,14 +134,14 @@ Simple ALU design supports the following operation:
 - Description: Shift right the first 8-bit input with the second input
 - Implementation: out[7:0] = in1[7:0]; repeat(in2[2:0]): out[7:0] = {[out[0], out[7:1]}
 
-**CPSEQ (opcode = 5'b01011):**
+**CMPEQ (opcode = 5'b01011):**
 - Description: Compare If Equal. This operation compares 2 8-bit inputs, set status[2] if they are equal
 - Implementation: status[2] = (in1 == in2) ? 1'b1 : 1'b0
 
-**CPSLT (opcode = 5'b1100):**
+**CMPLT (opcode = 5'b01100):**
 - Description: Compare If Less Than. This operation compares 2 8-bit inputs, set status[1] if the first smaller than the second
 - Implementation: status[2] = (in1 < in2) ? 1'b1 : 1'b0
 
-**CPSGT (opcode = 5'b1101):**
+**CMPGT (opcode = 5'b01101):**
 - Description: Compare If Greater Than. This operation compares 2 8-bit inputs, set status[0] if the first larger than the second
 - Implementation: status[0] = (in1 > in2) ? 1'b1 : 1'b0

@@ -20,6 +20,7 @@ module alu_reg (
     SETUP, 
     ACCESS
   } APB_STATE_e; 
+
   input         clk;
   input         reset_n;
   input         psel;

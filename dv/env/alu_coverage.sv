@@ -22,13 +22,10 @@ class alu_coverage extends uvm_subscriber#(alu_trans);
       bins opcode_srl   = {5'b01000};
       bins opcode_rll   = {5'b01001};
       bins opcode_rrl   = {5'b01010};
-      bins opcode_bez   = {5'b01011};
-      bins opcode_bnz   = {5'b01100};
-      bins opcode_slt   = {5'b01101};
-      bins opcode_cpseq = {5'b01110};
-      bins opcode_cpslt = {5'b01111};
-      bins opcode_cpsgt = {5'b10000};
-      bins opcode_error = {5'b00000, [5'b10001:5'b11111]};
+      bins opcode_cmpeq = {5'b01011};
+      bins opcode_cmplt = {5'b01100};
+      bins opcode_cmpgt = {5'b01101};
+      bins opcode_error = {5'b00000, [5'b01110:5'b11111]};
     }
     cp_alu_operand1: coverpoint trans_m.operand1_m {
       bins operand1_0 = {8'h00};
@@ -50,7 +47,7 @@ class alu_coverage extends uvm_subscriber#(alu_trans);
   covergroup cg_alu_status;
     cp_alu_status: coverpoint trans_m.status_m {
       bins status_carry = {5'b10000};
-      bins status_zero  = {5'b01000};
+      bins status_neg   = {5'b01000};
       bins status_eq    = {5'b00100};
       bins status_lt    = {5'b00010};
       bins status_gt    = {5'b00001};
