@@ -50,7 +50,7 @@ This is a full tutorial to verify simple ALU design using UVM (Univeral Verifica
 - Generate coverage report: `make coverage`
 
 **NOTE:** 
-Change *PLI_PATH* in Makefile depending on your environment
+Change *PLI_PATH* in Makefile depending on your environment for generating Verdi waveform
 
 
 

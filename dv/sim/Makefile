@@ -8,13 +8,12 @@
 # Makefile for Simulation Tests
 # Change PLI_PATH for your environment
 # Change UVM_HOME for your environment
-# Remove "${SUBMIT}",  this is used to submit server 
 
 export ALU_HOME = ${PWD}/../..
 export RTL_HOME = ${ALU_HOME}/rtl
 export DV_HOME  = ${ALU_HOME}/dv
 UVM_HOME   = ${ALU_HOME}/uvm/uvm-1.1d
-PLI_PATH   = /proj/eda/SYNOPSYS/VERDI3/J-201412-SP1/share/PLI/VCS/LINUX
+PLI_PATH   = ${NOVAS_HOME}/share/PLI/VCS/LINUX
 VCS        = vcs -sverilog -timescale=1ns/1ns +v2k +acc +vpi -PP -P ${PLI_PATH}/novas.tab ${PLI_PATH}/pli.a +incdir+${UVM_HOME}/src ${UVM_HOME}/src/dpi/uvm_dpi.cc -CFLAGS -DVCS ${UVM_HOME}/src/uvm_pkg.sv
 SIMV       = simv
 VERDI      = verdi -autoalias -nologo
