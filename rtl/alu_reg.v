@@ -122,7 +122,7 @@ module alu_reg (
       reg3 <= 32'h0;
     end
     else if(wr_en && reg3_en) begin
-      reg3 <= {pwdata[31:24], 24'h0, pwdata[7:0]};
+      reg3 <= {pwdata[31:24], 16'h0, pwdata[7:0]};
     end
   end
   always @(posedge clk or negedge reset_n) begin
