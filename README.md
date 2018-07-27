@@ -99,7 +99,7 @@ Simple ALU design supports the following operation:
 - Implementation: {status[4], out[7:0]} = in1[7:0] + in2[7:0]
 
 **SUB (opcode = 5'b00010):**
-- Description: Subtract 2 8-bit inputs. If the operation is overflow, the neg bit (status[2]) will be set 
+- Description: Subtract 2 8-bit inputs. If the operation is overflow, the neg bit (status[3]) will be set 
 - Implementation: {status[3], out[7:0]} = in1[7:0] - in2[7:0]
 
 **AND (opcode = 5'b00011):**
