@@ -113,7 +113,7 @@ module alu_reg (
     if(!reset_n) begin
       reg2 <= 32'h0;
     end
-    else if(wr_en && reg1_en) begin
+    else if(wr_en && reg2_en) begin
       reg2 <= {28'h0, pwdata[3:0]};
     end
   end
@@ -121,7 +121,7 @@ module alu_reg (
     if(!reset_n) begin
       reg3 <= 32'h0;
     end
-    else if(wr_en && reg1_en) begin
+    else if(wr_en && reg3_en) begin
       reg3 <= {pwdata[31:24], 24'h0, pwdata[7:0]};
     end
   end
@@ -129,7 +129,7 @@ module alu_reg (
     if(!reset_n) begin
       reg4 <= 32'h0;
     end
-    else if(wr_en && reg1_en) begin
+    else if(wr_en && reg4_en) begin
       reg4 <= pwdata;
     end
   end
