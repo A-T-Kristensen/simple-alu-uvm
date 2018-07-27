@@ -81,7 +81,7 @@ Change *PLI_PATH* in Makefile depending on your environment for generating Verdi
 | alu_longdelay_test    |      10     |
 | alu_error_test        |       5     |
 
-It means every test will be executed 5 times
+It means every test will be executed "number loop" times
 
 ### 4.2. Script options:
 - coverage : Generate coverage report
