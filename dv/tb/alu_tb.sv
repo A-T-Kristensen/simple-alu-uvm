@@ -57,8 +57,14 @@ module alu_tb;
   /* Dump waveform */
   initial begin                                                                                                                   
     if ($test$plusargs("debussy")) begin
-      $fsdbDumpfile("debussy.fsdb");
-      $fsdbDumpvars;
+      if($test$plusargs("fsdb")) begin
+        $fsdbDumpvars;
+        $fsdbDumpfile("debussy.fsdb");
+      end
+      else begin
+        $dumpvars;
+        $dumpfile("debussy.fsdb");
+      end
     end
   end
 endmodule : alu_tb
